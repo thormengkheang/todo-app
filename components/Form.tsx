@@ -4,9 +4,9 @@ import { TextInput, View, StyleSheet, Text, Button, Alert } from "react-native";
 import Checkbox from "expo-checkbox";
 
 interface Props {
-  data?: Todo;
+  data?: Partial<Todo>;
   submitLabel: string;
-  onSubmit: (todo: Todo) => void;
+  onSubmit: (todo: Partial<Todo>) => void;
 }
 
 function generateRandomId() {
@@ -15,7 +15,7 @@ function generateRandomId() {
 
 export default function Form(props: Props) {
   const { data, submitLabel, onSubmit } = props;
-  const [formData, setFormData] = useState<Todo>(data);
+  const [formData, setFormData] = useState<Partial<Todo>>(data);
 
   function handleOnSubmit() {
     if (!formData?.title) {
@@ -40,15 +40,18 @@ export default function Form(props: Props) {
         }}
         autoFocus
       />
-      <TextInput
-        placeholder="Description"
-        style={styles.descriptionInput}
-        multiline
-        numberOfLines={10}
-        value={formData?.description}
-        onChangeText={(t) => setFormData({ ...formData, description: t })}
-      />
-      <View style={{ flexDirection: "row", alignItems: "center", paddingBottom: 10 }}>
+      <View>
+        <TextInput
+          placeholder="Description"
+          style={styles.descriptionInput}
+          multiline
+          numberOfLines={10}
+          value={formData?.description}
+          onChangeText={(t) => setFormData({ ...formData, description: t })}
+        />
+      </View>
+
+      <View style={styles.checkbox}>
         <Checkbox
           value={formData?.done}
           onValueChange={(v) => setFormData({ ...formData, done: v })}
@@ -80,5 +83,10 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 5,
+  },
+  checkbox: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingBottom: 10,
   },
 });
