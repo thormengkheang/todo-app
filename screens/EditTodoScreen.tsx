@@ -8,7 +8,7 @@ export default function EditTodoScreen() {
   const navigation = useNavigation();
   const { todos, updateTodo } = useTodo();
   const route = useRoute<RouteProp<MainStackParamList, "EditTodo">>();
-  const id = route.params.id;
+  const id = +route.params.id;
   const editedTodo = todos.find((todo) => todo.id === id);
 
   function onSubmit(updatedTodo) {
