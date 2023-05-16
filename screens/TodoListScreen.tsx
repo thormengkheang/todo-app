@@ -55,21 +55,14 @@ function TodoListScreen() {
     });
     return (
       <Animated.View
-        style={{
-          transform: [{ translateX: trans }],
-          backgroundColor: "red",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        style={[
+          styles.removeContainer,
+          {
+            transform: [{ translateX: trans }],
+          },
+        ]}
       >
-        <Pressable
-          style={{
-            padding: 10,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onPress={() => onRemovePress(id)}
-        >
+        <Pressable style={styles.removeBtn} onPress={() => onRemovePress(id)}>
           <Text style={{ color: "#FFFFFF" }}>Remove</Text>
         </Pressable>
       </Animated.View>
@@ -165,6 +158,16 @@ const styles = StyleSheet.create({
   },
   strikeThrough: {
     textDecorationLine: "line-through",
+  },
+  removeBtn: {
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  removeContainer: {
+    backgroundColor: "red",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
