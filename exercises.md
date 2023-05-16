@@ -30,8 +30,8 @@
 - [x] persist data either using AsyncStorage, SQLite, or your own choice
 - [x] use state management libraries like Redux (Toolkit), Zuztand, or your own choice
 - [x] use react-navigation for navigation
-- [ ] open deep-link to add a new item, i.e, using nham24app://todo/add?title=hello
-- [ ] open deep-link to edit an item, i.e, using nham24app://todo/edit/{id}
+- [x] open deep-link to add a new item, i.e, using nham24app://todo/add?title=hello
+- [x] open deep-link to edit an item, i.e, using nham24app://todo/edit/{id}
 - [x] other third-party libraries are allowed
 
 ### Submission

@@ -34,6 +34,7 @@ export function TodoProvider({ children }: PropsWithChildren<{}>) {
   useEffect(() => {
     async function getTodo() {
       const localTodos = await AsyncStorage.getItem(LOCAL_STORAGE_KEY);
+      console.log("localTodos", localTodos)
       setTodos(JSON.parse(localTodos) || []);
     }
     getTodo();
