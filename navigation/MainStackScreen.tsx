@@ -6,7 +6,7 @@ import EditTodoScreen from "../screens/EditTodoScreen";
 
 export type MainStackParamList = {
   Todo: undefined;
-  AddTodo: undefined;
+  AddTodo?: { title: string };
   EditTodo: { id: number };
 };
 
